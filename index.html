@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Fathers Community - Supporting Fathers Worldwide</title>
+    <title>The Fatherless Community - Supporting Fatherless Children Worldwide</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #2c3e50;
-            --secondary-color: #3498db;
+            --secondary-color: #e74c3c;
             --bg-light: #f8f9fa;
             --text-color: #333;
             --text-light: #7f8c8d;
@@ -40,13 +40,12 @@
         }
 
         .btn-primary:hover {
-            background-color: #2980b9;
-            border-color: #2980b9;
+            background-color: #c0392b;
+            border-color: #c0392b;
         }
 
         .hero-section {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
-                        url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8));
             background-size: cover;
             background-position: center;
             color: white;
@@ -128,12 +127,12 @@
 
         .payment-option:hover {
             border-color: var(--secondary-color);
-            background-color: rgba(52, 152, 219, 0.05);
+            background-color: rgba(231, 76, 60, 0.05);
         }
 
         .payment-option.active {
             border-color: var(--secondary-color);
-            background-color: rgba(52, 152, 219, 0.1);
+            background-color: rgba(231, 76, 60, 0.1);
         }
 
         .payment-icon {
@@ -154,6 +153,99 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
+        .testimonial {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Carousel Styles */
+        .carousel-item {
+            height: 500px;
+            position: relative;
+        }
+
+        .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+        }
+
+        .carousel-caption h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .carousel-caption p {
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+        }
+
+        .carousel-indicators button.active {
+            background-color: var(--secondary-color);
+        }
+
+        /* Join Us Button Styles */
+        .join-us-section {
+            text-align: center;
+            padding: 30px 0;
+            background-color: var(--white);
+        }
+
+        .join-us-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .join-us-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .join-us-btn:hover {
+            background-color: #c0392b;
+            color: white;
+            transform: scale(1.1) translateY(0);
+        }
     </style>
 </head>
 
@@ -162,7 +254,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <i class="fas fa-hands-helping me-2"></i>The Fathers Community
+                <i class="fas fa-child me-2"></i>The Fatherless Community
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -179,46 +271,114 @@
                         <a class="nav-link" href="#programs">Programs</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#stories">Stories</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item ms-lg-3">
-                        <button class="btn btn-primary mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#joinModal">Join Us</button>
+                        <button class="btn btn-primary mt-2 mt-lg-0" data-bs-toggle="modal"
+                            data-bs-target="#donateModal">Donate</button>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <h1 class="display-4 fw-bold mb-4">Empowering Fathers Worldwide</h1>
-            <p class="lead mb-5">Building stronger families through support, education, and community engagement</p>
-            <div class="d-flex justify-content-center gap-3">
-                <button class="btn btn-primary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#joinModal">Become a Member</button>
-                <a href="#programs" class="btn btn-outline-light btn-lg px-4">Our Programs</a>
+    <!-- Bootstrap Carousel - Full width after header -->
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="4"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Community Support">
+                <div class="carousel-caption">
+                    <h3>Community Support</h3>
+                    <p>Join our community to support fatherless children around the world</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Mentorship Program">
+                <div class="carousel-caption">
+                    <h3>Mentorship Program</h3>
+                    <p>Become a mentor and change a child's life</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Educational Support">
+                <div class="carousel-caption">
+                    <h3>Educational Support</h3>
+                    <p>Help provide education opportunities for fatherless children</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Counseling Services">
+                <div class="carousel-caption">
+                    <h3>Counseling Services</h3>
+                    <p>Support our counseling programs for emotional wellbeing</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Happy Children">
+                <div class="carousel-caption">
+                    <h3>Happy Children</h3>
+                    <p>See the difference your support can make</p>
+                </div>
             </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Join Us Section -->
+    <section class="join-us-section">
+        <div class="container">
+            <h2 class="mb-4">Ready to Make a Difference?</h2>
+            <button class="btn btn-primary btn-lg" id="mainJoinBtn">
+                <i class="fas fa-handshake me-2"></i>Join Us Today
+            </button>
+        </div>
     </section>
+
+    <!-- Floating Join Us Button -->
+    <a href="#" class="join-us-btn" id="floatingJoinBtn" title="Join Us">
+        <i class="fas fa-handshake"></i>
+    </a>
 
     <!-- Stats Section -->
     <section class="py-5 bg-white">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-3 mb-4 mb-md-0">
-                    <div class="stat-number">1,250+</div>
-                    <div class="stat-label">Members</div>
+                    <div class="stat-number">1M+</div>
+                    <div class="stat-label">Children Helped</div>
                 </div>
                 <div class="col-md-3 mb-4 mb-md-0">
-                    <div class="stat-number">45</div>
+                    <div class="stat-number">60</div>
                     <div class="stat-label">Countries</div>
                 </div>
                 <div class="col-md-3 mb-4 mb-md-0">
-                    <div class="stat-number">120+</div>
-                    <div class="stat-label">Workshops</div>
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Mentors</div>
                 </div>
                 <div class="col-md-3">
-                    <div class="stat-number">15</div>
+                    <div class="stat-number">20</div>
                     <div class="stat-label">Years</div>
                 </div>
             </div>
@@ -231,14 +391,20 @@
             <h2 class="section-title text-center">Who We Are</h2>
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                         alt="Fathers Community" class="img-fluid rounded shadow">
+                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Fatherless Community" class="img-fluid rounded shadow">
                 </div>
                 <div class="col-lg-6">
-                    <p class="lead">The Fathers Community is a global non-profit organization dedicated to supporting fathers in their parenting journey.</p>
-                    <p>Since 2008, we've been providing resources, education, and community support to help fathers become more engaged, confident, and effective parents. Our programs are designed to address the unique challenges fathers face in today's rapidly changing world.</p>
-                    <p>We believe that strong fathers build strong families, and strong families build strong communities. Our work spans across 45 countries, with local chapters offering support groups, parenting workshops, and advocacy programs.</p>
-                    <p>Registered as a 501(c)(3) non-profit organization, all donations are tax-deductible and directly support our mission to empower fathers worldwide.</p>
+                    <p class="lead">The Fatherless Community is a global non-profit organization dedicated to supporting
+                        children growing up without fathers.</p>
+                    <p>Since 2003, we've been providing mentorship, educational resources, and emotional support to help
+                        fatherless children thrive. Our programs address the unique challenges these children face, from
+                        emotional struggles to practical needs.</p>
+                    <p>We believe every child deserves love, guidance, and support, regardless of their family
+                        situation. Our work spans across 60 countries, with local chapters offering mentorship programs,
+                        counseling services, and educational support.</p>
+                    <p>Registered as a 501(c)(3) non-profit organization, all donations are tax-deductible and directly
+                        support our mission to empower fatherless children worldwide.</p>
                 </div>
             </div>
         </div>
@@ -251,11 +417,12 @@
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1532635241-17e820acc59f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                             class="card-img-top" alt="Support Groups">
+                        <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            class="card-img-top" alt="Mentorship Program">
                         <div class="card-body">
-                            <h5 class="card-title">Support Groups</h5>
-                            <p class="card-text">Local and online support groups where fathers can share experiences, challenges, and solutions in a safe, judgment-free environment.</p>
+                            <h5 class="card-title">Mentorship Program</h5>
+                            <p class="card-text">Connecting fatherless children with caring adult mentors who provide
+                                guidance, support, and positive role models.</p>
                         </div>
                         <div class="card-footer bg-transparent">
                             <a href="#" class="btn btn-sm btn-primary">Learn More</a>
@@ -264,11 +431,12 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                             class="card-img-top" alt="Parenting Workshops">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            class="card-img-top" alt="Educational Support">
                         <div class="card-body">
-                            <h5 class="card-title">Parenting Workshops</h5>
-                            <p class="card-text">Expert-led workshops covering topics from newborn care to teenage challenges, designed specifically for fathers.</p>
+                            <h5 class="card-title">Educational Support</h5>
+                            <p class="card-text">Providing tutoring, scholarships, and school supplies to help
+                                fatherless children succeed academically.</p>
                         </div>
                         <div class="card-footer bg-transparent">
                             <a href="#" class="btn btn-sm btn-primary">Learn More</a>
@@ -277,11 +445,12 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                             class="card-img-top" alt="Advocacy Programs">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            class="card-img-top" alt="Counseling Services">
                         <div class="card-body">
-                            <h5 class="card-title">Advocacy Programs</h5>
-                            <p class="card-text">Working to change policies and perceptions about fatherhood at local, national, and international levels.</p>
+                            <h5 class="card-title">Counseling Services</h5>
+                            <p class="card-text">Professional counseling to help children process the emotional impact
+                                of growing up without a father.</p>
                         </div>
                         <div class="card-footer bg-transparent">
                             <a href="#" class="btn btn-sm btn-primary">Learn More</a>
@@ -292,38 +461,82 @@
         </div>
     </section>
 
+    <!-- Stories Section -->
+    <section id="stories" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-title text-center">Success Stories</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Growing up without a father was incredibly difficult, but The Fatherless Community connected
+                            me with a mentor who changed my life. He showed me what it means to be a good man and helped
+                            me believe in myself."</p>
+                        <p class="testimonial-author">- Michael, age 17</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"The scholarship I received allowed me to be the first in my family to go to college. I don't
+                            know where I'd be without the support of this amazing organization."</p>
+                        <p class="testimonial-author">- Sarah, age 21</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"As a single mother, I was struggling to provide the male role model my son needed. The
+                            mentorship program gave him someone to look up to and learn from."</p>
+                        <p class="testimonial-author">- Lisa, mother of 12-year-old</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial">
+                        <p>"Volunteering as a mentor has been one of the most rewarding experiences of my life. Seeing
+                            my mentee grow and thrive despite his circumstances inspires me every day."</p>
+                        <p class="testimonial-author">- David, volunteer mentor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Team Section -->
-    <section class="py-5">
+    <section class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title text-center">Our Team</h2>
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="card-img-top" alt="John Doe">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" class="card-img-top"
+                            alt="Maria Garcia">
                         <div class="card-body text-center">
-                            <h5 class="card-title">John Doe</h5>
+                            <h5 class="card-title">Maria Garcia</h5>
                             <p class="text-muted">Founder & Executive Director</p>
-                            <p class="card-text">With over 20 years of experience in family counseling, John founded The Fathers Community to address the lack of support systems for fathers.</p>
+                            <p class="card-text">After growing up without a father herself, Maria founded The Fatherless
+                                Community to help other children facing similar challenges.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="card-img-top" alt="Jane Smith">
+                        <img src="https://randomuser.me/api/portraits/men/44.jpg" class="card-img-top"
+                            alt="James Wilson">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Jane Smith</h5>
+                            <h5 class="card-title">James Wilson</h5>
                             <p class="text-muted">Program Director</p>
-                            <p class="card-text">Jane oversees all our programs and ensures they meet the evolving needs of fathers in diverse communities worldwide.</p>
+                            <p class="card-text">James oversees all our programs and ensures they meet the needs of
+                                fatherless children in diverse communities worldwide.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" class="card-img-top" alt="Mike Johnson">
+                        <img src="https://randomuser.me/api/portraits/women/75.jpg" class="card-img-top"
+                            alt="Dr. Amina Johnson">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Mike Johnson</h5>
-                            <p class="text-muted">International Coordinator</p>
-                            <p class="card-text">Mike manages our global network of chapters and ensures consistent quality across all our international programs.</p>
+                            <h5 class="card-title">Dr. Amina Johnson</h5>
+                            <p class="text-muted">Counseling Director</p>
+                            <p class="card-text">A child psychologist specializing in father absence, Dr. Johnson leads
+                                our counseling services and mentor training programs.</p>
                         </div>
                     </div>
                 </div>
@@ -334,9 +547,10 @@
     <!-- CTA Section -->
     <section class="py-5 bg-primary text-white">
         <div class="container text-center">
-            <h2 class="mb-4">Ready to Join Our Community?</h2>
-            <p class="lead mb-5">Become part of a global movement supporting fathers and changing lives.</p>
-            <button class="btn btn-light btn-lg px-5" data-bs-toggle="modal" data-bs-target="#joinModal">Join Now</button>
+            <h2 class="mb-4">Want to Make a Difference?</h2>
+            <p class="lead mb-5">Your support can change the life of a fatherless child.</p>
+            <button class="btn btn-light btn-lg px-5" data-bs-toggle="modal" data-bs-target="#donateModal">Donate
+                Now</button>
         </div>
     </section>
 
@@ -371,23 +585,24 @@
                             <ul class="list-unstyled">
                                 <li class="mb-3">
                                     <i class="fas fa-map-marker-alt me-2 text-primary"></i>
-                                    <strong>Address:</strong> 123 Fatherhood Way, Suite 100, New York, NY 10001
+                                    <strong>Address:</strong> 456 Hope Avenue, Suite 200, Chicago, IL 60601
                                 </li>
                                 <li class="mb-3">
                                     <i class="fas fa-phone me-2 text-primary"></i>
-                                    <strong>Phone:</strong> (800) 555-1234
+                                    <strong>Phone:</strong> (800) 555-5678
                                 </li>
                                 <li class="mb-3">
                                     <i class="fas fa-envelope me-2 text-primary"></i>
-                                    <strong>Email:</strong> info@fatherscommunity.org
+                                    <strong>Email:</strong> info@fatherlesscommunity.org
                                 </li>
                                 <li class="mb-3">
                                     <i class="fas fa-clock me-2 text-primary"></i>
-                                    <strong>Hours:</strong> Monday-Friday, 9am-5pm EST
+                                    <strong>Hours:</strong> Monday-Friday, 9am-5pm CST
                                 </li>
                             </ul>
                             <div class="social-links mt-4">
-                                <a href="#" class="text-decoration-none me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                                <a href="#" class="text-decoration-none me-3"><i
+                                        class="fab fa-facebook-f fa-lg"></i></a>
                                 <a href="#" class="text-decoration-none me-3"><i class="fab fa-twitter fa-lg"></i></a>
                                 <a href="#" class="text-decoration-none me-3"><i class="fab fa-instagram fa-lg"></i></a>
                                 <a href="#" class="text-decoration-none"><i class="fab fa-linkedin-in fa-lg"></i></a>
@@ -404,8 +619,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4 mb-md-0">
-                    <h5 class="mb-3">The Fathers Community</h5>
-                    <p>Empowering fathers to build stronger families and communities through support, education, and advocacy.</p>
+                    <h5 class="mb-3">The Fatherless Community</h5>
+                    <p>Providing hope, support, and resources to children growing up without fathers since 2003.</p>
                 </div>
                 <div class="col-md-2 mb-4 mb-md-0">
                     <h5 class="mb-3">Quick Links</h5>
@@ -426,7 +641,7 @@
                 </div>
                 <div class="col-md-3">
                     <h5 class="mb-3">Newsletter</h5>
-                    <p>Subscribe to our newsletter for updates and resources.</p>
+                    <p>Subscribe to our newsletter for updates and inspiring stories.</p>
                     <form class="d-flex">
                         <input type="email" class="form-control me-2" placeholder="Your Email">
                         <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i></button>
@@ -436,7 +651,7 @@
             <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0">© 2023 The Fathers Community. All rights reserved.</p>
+                    <p class="mb-0">© 2023 The Fatherless Community. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <p class="mb-0">Registered 501(c)(3) non-profit organization</p>
@@ -445,42 +660,42 @@
         </div>
     </footer>
 
-    <!-- Join Modal -->
-    <div class="modal fade" id="joinModal" tabindex="-1" aria-labelledby="joinModalLabel" aria-hidden="true">
+    <!-- Donate Modal -->
+    <div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="donateModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="joinModalLabel">Join The Fathers Community</h5>
+                    <h5 class="modal-title" id="donateModalLabel">Support Fatherless Children</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <h6 class="mb-3">Membership Options</h6>
+                            <h6 class="mb-3">Donation Options</h6>
                             <div class="payment-option active">
                                 <div class="d-flex align-items-center">
-                                    <i class="fas fa-user payment-icon"></i>
+                                    <i class="fas fa-heart payment-icon"></i>
                                     <div>
-                                        <h6 class="mb-1">Basic Membership</h6>
-                                        <p class="mb-0 text-muted">$50/year</p>
+                                        <h6 class="mb-1">Sponsor a Child</h6>
+                                        <p class="mb-0 text-muted">$50/month</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="payment-option">
                                 <div class="d-flex align-items-center">
-                                    <i class="fas fa-user-shield payment-icon"></i>
+                                    <i class="fas fa-graduation-cap payment-icon"></i>
                                     <div>
-                                        <h6 class="mb-1">Premium Membership</h6>
-                                        <p class="mb-0 text-muted">$100/year</p>
+                                        <h6 class="mb-1">Education Fund</h6>
+                                        <p class="mb-0 text-muted">$100/month</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="payment-option">
                                 <div class="d-flex align-items-center">
-                                    <i class="fas fa-hand-holding-heart payment-icon"></i>
+                                    <i class="fas fa-hands-helping payment-icon"></i>
                                     <div>
-                                        <h6 class="mb-1">Supporting Member</h6>
-                                        <p class="mb-0 text-muted">$250/year</p>
+                                        <h6 class="mb-1">Mentorship Program</h6>
+                                        <p class="mb-0 text-muted">$250/month</p>
                                     </div>
                                 </div>
                             </div>
@@ -492,22 +707,24 @@
                                     <img src="https://logo.clearbit.com/stripe.com" alt="Stripe" height="30">
                                     <img src="https://logo.clearbit.com/google.com" alt="Google Pay" height="30">
                                 </div>
-                                <p class="small text-muted">All payments are secure and encrypted. Your membership is tax-deductible.</p>
+                                <p class="small text-muted">All payments are secure and encrypted. Your donation is
+                                    tax-deductible.</p>
                             </div>
                         </div>
                         <div class="col-md-6 text-center">
-                            <h6 class="mb-3">Scan to Pay via UPI/GPay/PhonePe</h6>
+                            <h6 class="mb-3">Scan to Donate via UPI/GPay/PhonePe</h6>
                             <div class="qr-code mb-3">
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://fatherscommunity.org/pay?amount=50" 
-                                     alt="QR Code" class="img-fluid">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://fatherlesscommunity.org/donate?amount=50"
+                                    alt="QR Code" class="img-fluid">
                             </div>
-                            <p class="text-muted mb-4">Scan this QR code with any UPI payment app to complete your membership payment</p>
+                            <p class="text-muted mb-4">Scan this QR code with any UPI payment app to make your donation
+                            </p>
                             <div class="d-grid gap-2">
                                 <a href="https://pay.google.com" class="btn btn-outline-primary">
-                                    <i class="fab fa-google-pay me-2"></i> Pay with Google Pay
+                                    <i class="fab fa-google-pay me-2"></i> Donate with Google Pay
                                 </a>
                                 <a href="https://www.phonepe.com" class="btn btn-outline-primary">
-                                    <i class="fas fa-mobile-alt me-2"></i> Pay with PhonePe
+                                    <i class="fas fa-mobile-alt me-2"></i> Donate with PhonePe
                                 </a>
                             </div>
                         </div>
@@ -515,7 +732,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Complete Registration</button>
+                    <button type="button" class="btn btn-primary">Complete Donation</button>
                 </div>
             </div>
         </div>
@@ -525,16 +742,16 @@
     <script>
         // Activate payment option selection
         document.querySelectorAll('.payment-option').forEach(option => {
-            option.addEventListener('click', function() {
+            option.addEventListener('click', function () {
                 document.querySelectorAll('.payment-option').forEach(opt => {
                     opt.classList.remove('active');
                 });
                 this.classList.add('active');
-                
+
                 // Update QR code with selected amount
-                const amount = this.querySelector('p').textContent.replace(/\D/g,'');
-                document.querySelector('.qr-code img').src = 
-                    `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://fatherscommunity.org/pay?amount=${amount}`;
+                const amount = this.querySelector('p').textContent.replace(/\D/g, '');
+                document.querySelector('.qr-code img').src =
+                    `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://fatherlesscommunity.org/donate?amount=${amount}`;
             });
         });
 
@@ -547,6 +764,32 @@
                 });
             });
         });
+
+        // Floating Join Us Button
+        const floatingJoinBtn = document.getElementById('floatingJoinBtn');
+        const mainJoinBtn = document.getElementById('mainJoinBtn');
+
+        // Show floating button after scrolling past the main join button
+        window.addEventListener('scroll', function () {
+            const joinSection = document.querySelector('.join-us-section');
+            const joinSectionBottom = joinSection.offsetTop + joinSection.offsetHeight;
+
+            if (window.pageYOffset > joinSectionBottom) {
+                floatingJoinBtn.classList.add('visible');
+            } else {
+                floatingJoinBtn.classList.remove('visible');
+            }
+        });
+
+        // Make both buttons do the same thing
+        function handleJoinClick(e) {
+            e.preventDefault();
+            alert('Thank you for your interest in joining us! We will contact you soon.');
+            // You could also open a form or redirect to a signup page
+        }
+
+        floatingJoinBtn.addEventListener('click', handleJoinClick);
+        mainJoinBtn.addEventListener('click', handleJoinClick);
     </script>
 </body>
 
